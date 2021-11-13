@@ -1,0 +1,11 @@
+.login {
+    padding-top: 100px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.login_form-element {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}

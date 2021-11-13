@@ -1,0 +1,10 @@
+.register {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.regiser_form-element {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
