@@ -8,3 +8,9 @@
     justify-content: space-between;
     margin: 10px 0;
 }
+
+.form-element-error{
+    display: flex;
+    justify-content: end;
+    color: red;
+}
