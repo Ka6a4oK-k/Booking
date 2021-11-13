@@ -1,0 +1,24 @@
+1. Register (Sign up) form 
+  1.1. Create user
+2. Login (Sign in) form
+3. Create Form for booking
+4. Table booking entities
+5. Booking CRUD - create update delete
+
+
+
+Booking = {
+    bookingData = {
+        fromDate,
+        toDate,
+        hotelAdress
+    }
+
+    userInfo = {
+        fName,
+        lName,
+        adress,
+        phoneNumber,
+        email,
+    }
+}
