@@ -11,3 +11,7 @@ export default function FormElement(props) {
         </div>
     )
 }
+
+FormElement.defaultProps = {
+    onBlur: () => {}
+}

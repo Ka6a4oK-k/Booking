@@ -43,6 +43,7 @@ export default function Register() {
         if (e.target.value.match(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{8,}/g)) {
             setstate({ ...state, isPasswordValid: true });
         } else setstate({ ...state, isPasswordValid: false });
+        validatePasswordConfirmition();
     }
 
     const validatePasswordConfirmition = (e) => {
@@ -99,7 +100,6 @@ export default function Register() {
                             isValid={state.isAddressValid}
                             handleChange={handleChange}
                             text="Address"
-                            validateName={true}
                         />
                         <FormElement
                             errorText="Phone number is not valid"
