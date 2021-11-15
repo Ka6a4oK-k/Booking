@@ -3,13 +3,16 @@ import './register.css';
 import { FormElement } from './components';
 
 export default function Register() {
-    // const [userInfo, setUserInfo] = useState({});
 
-    // const [isFirstNameValid, setIsFirstNameValid] = useState(true);
     const [state, setstate] = useState({
         userInfo: {},
         isFirstNameValid: true,
         isLastNameValid: true,
+        isPhoneValid: true,
+        isAddressValid: true,
+        isEmailValid: true,
+        isPasswordValid: true,
+        isPasswordConfirmed: true,
     })
 
     const validateName = (e) => {
@@ -24,25 +27,32 @@ export default function Register() {
         } else setstate({ ...state, isLastNameValid: false });
     }
 
-    // const validationCheck = 
+    const validatePhone = (e) => {
+        if (e.target.value.match(/^[+][0-9]+/)) {
+            setstate({ ...state, isPhoneValid: true });
+        } else setstate({ ...state, isPhoneValid: false });
+    }
 
-    //     if(e.target.name === "phone"){
-    //         if (e.target.value.match(/^[+][0-9]+/)) {
-    //             e.target.isValid = true;
-    //         } else e.target.isValid = false;
-    //     }
+    const validateEmail = (e) => {
+        if (e.target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+            setstate({ ...state, isEmailValid: true });
+        } else setstate({ ...state, isEmailValid: false });
+    }
 
-    //     if(e.target.name === "email"){
-    //         if (e.target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
-    //             e.target.isValid = true;
-    //         } else e.target.isValid = false;
-    //     }
+    const validatePassword = (e) => {
+        if (e.target.value.match(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{8,}/g)) {
+            setstate({ ...state, isPasswordValid: true });
+        } else setstate({ ...state, isPasswordValid: false });
+    }
 
-    //     console.log(e.target.isValid);
-    // }
+    const validatePasswordConfirmition = (e) => {
+        if (state.userInfo.password === state.userInfo.passwordConfirmition){
+            setstate({...state, isPasswordConfirmed: true})
+        } else setstate({...state, isPasswordConfirmed: false})
+    }
 
     const handleChange = (e) => {
-        setstate({ ...state, userInfo:{...state.userInfo, [e.target.name]: e.target.value}});
+        setstate({ ...state, userInfo: { ...state.userInfo, [e.target.name]: e.target.value } });
     }
 
     const register = () => {
@@ -70,33 +80,66 @@ export default function Register() {
                             inputName="firstName"
                             isValid={state.isFirstNameValid}
                             handleChange={handleChange}
-                            text="First name"
+                            text="First Name"
                             validateName={validateName}
                         />
-                        <div>
-                            <div className="regiser_form-element">
-                                <span>Last Name</span>
-                                <input type="text" name="lastName" onChange={handleChange} onBlur={validateLastName} ></input>
-                            </div>
-                            {!state.isLastNameValid && <p className='form-element-error'>Last name is not valid.</p>}
-                        </div>
-                        <div className="regiser_form-element">
-                            <span>Address</span>
-                            <input type="text" name="address" onChange={handleChange}  ></input>
-                        </div>
-                        <div className="regiser_form-element">
-                            <span>Phone</span>
-                            <input type="phone" name="phone" onChange={handleChange}  ></input>
-                        </div>
-                        <div className="regiser_form-element">
-                            <span>Email</span>
-                            <input type="text" name="email" onChange={handleChange}  ></input>
-                        </div>
-                        <div className="regiser_form-element">
-                            <span>Password</span>
-                            <input type="text" name="password" onChange={handleChange}  ></input>
-                        </div>
-                        {/* <button type="submit" onClick={register}>Register</button> */}
+                        <FormElement
+                            errorText="Last name is not valid"
+                            isLastNameValid={state.isLastNameValid}
+                            inputName="lastName"
+                            isValid={state.isLastNameValid}
+                            handleChange={handleChange}
+                            text="Last Name"
+                            validateName={validateLastName}
+                        />
+                        <FormElement
+                            errorText="Address is not valid"
+                            isFirstNameValid={state.isAddressValid}
+                            inputName="address"
+                            isValid={state.isAddressValid}
+                            handleChange={handleChange}
+                            text="Address"
+                            validateName={true}
+                        />
+                        <FormElement
+                            errorText="Phone number is not valid"
+                            isPhoneValid={state.isPhoneValid}
+                            inputName="phone"
+                            isValid={state.isPhoneValid}
+                            handleChange={handleChange}
+                            text="Phone"
+                            validateName={validatePhone}
+                        />
+                        <FormElement
+                            errorText="Email is not valid"
+                            isEmailValid={state.isEmailValid}
+                            inputName="email"
+                            isValid={state.isEmailValid}
+                            handleChange={handleChange}
+                            text="Email"
+                            validateName={validateEmail}
+                        />
+
+                        <FormElement
+                            errorText="Password is not valid"
+                            isPasswordValid={state.isPasswordValid}
+                            inputName="password"
+                            isValid={state.isPasswordValid}
+                            handleChange={handleChange}
+                            text="Password"
+                            validateName={validatePassword}
+                        />
+
+                        <FormElement
+                            errorText="Password is not confirmed"
+                            isPasswordConfirmed={state.isPasswordConfirmed}
+                            inputName="passwordConfirmition"
+                            isValid={state.isPasswordConfirmed}
+                            handleChange={handleChange}
+                            text="Confirm Password"
+                            validateName={validatePasswordConfirmition}
+                        />
+
                     </form>
                     <button onClick={register}>Register</button>
                 </div>

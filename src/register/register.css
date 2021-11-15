@@ -1,11 +1,12 @@
 .register {
-    width: 300px;
+    width: 360px;
     margin: 0 auto;
 }
 
 .regiser_form-element {
     display: flex;
     justify-content: space-between;
+    text-align: start;
     margin: 10px 0;
 }
 
