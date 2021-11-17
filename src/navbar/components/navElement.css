@@ -1,0 +1,8 @@
+.navElement{
+    width: 100px;
+    height: 50px;
+    background-color: rgb(31, 27, 27);
+    color: honeydew;
+    text-align: center;
+    margin: 10px;
+}

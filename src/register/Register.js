@@ -15,6 +15,18 @@ export default function Register() {
         isPasswordConfirmed: true,
     })
 
+    // const validateName = (e) => {
+    //     if (e.target.inputName === "firstName") {
+    //         if (e.target.value.match(/^[A-Z][a-z]+/)) {
+    //             setstate({ ...state, isFirstNameValid: true });
+    //         } else setstate({ ...state, isFirstNameValid: false });
+    //     } else if (e.target.inputName === "lastName") {
+    //         if (e.target.value.match(/^[A-Z][a-z]+/)) {
+    //             setstate({ ...state, isLastNameValid: true });
+    //         } else setstate({ ...state, isLastNameValid: false });
+    //     }
+    // }
+
     const validateName = (e) => {
         if (e.target.value.match(/^[A-Z][a-z]+/)) {
             setstate({ ...state, isFirstNameValid: true });
@@ -47,9 +59,9 @@ export default function Register() {
     }
 
     const validatePasswordConfirmition = (e) => {
-        if (state.userInfo.password === state.userInfo.passwordConfirmition){
-            setstate({...state, isPasswordConfirmed: true})
-        } else setstate({...state, isPasswordConfirmed: false})
+        if (state.userInfo.password === state.userInfo.passwordConfirmition) {
+            setstate({ ...state, isPasswordConfirmed: true })
+        } else setstate({ ...state, isPasswordConfirmed: false })
     }
 
     const handleChange = (e) => {
@@ -61,7 +73,6 @@ export default function Register() {
         const users = JSON.parse(usersFromLocalStorage) || [];
 
         const newUsers = [...users, state.userInfo]
-        console.log('newUsers', newUsers);
 
         localStorage.setItem('userInfo', JSON.stringify(state.userInfo));
         localStorage.setItem('users', JSON.stringify(newUsers));
@@ -82,7 +93,7 @@ export default function Register() {
                             isValid={state.isFirstNameValid}
                             handleChange={handleChange}
                             text="First Name"
-                            validateName={validateName}
+                            validationCheck={validateName}
                         />
                         <FormElement
                             errorText="Last name is not valid"
@@ -91,7 +102,7 @@ export default function Register() {
                             isValid={state.isLastNameValid}
                             handleChange={handleChange}
                             text="Last Name"
-                            validateName={validateLastName}
+                            validationCheck={validateLastName}
                         />
                         <FormElement
                             errorText="Address is not valid"
@@ -108,7 +119,7 @@ export default function Register() {
                             isValid={state.isPhoneValid}
                             handleChange={handleChange}
                             text="Phone"
-                            validateName={validatePhone}
+                            validationCheck={validatePhone}
                         />
                         <FormElement
                             errorText="Email is not valid"
@@ -117,7 +128,7 @@ export default function Register() {
                             isValid={state.isEmailValid}
                             handleChange={handleChange}
                             text="Email"
-                            validateName={validateEmail}
+                            validationCheck={validateEmail}
                         />
 
                         <FormElement
@@ -127,7 +138,7 @@ export default function Register() {
                             isValid={state.isPasswordValid}
                             handleChange={handleChange}
                             text="Password"
-                            validateName={validatePassword}
+                            validationCheck={validatePassword}
                         />
 
                         <FormElement
@@ -137,7 +148,7 @@ export default function Register() {
                             isValid={state.isPasswordConfirmed}
                             handleChange={handleChange}
                             text="Confirm Password"
-                            validateName={validatePasswordConfirmition}
+                            validationCheck={validatePasswordConfirmition}
                         />
 
                     </form>

@@ -5,7 +5,7 @@ export default function FormElement(props) {
         <div>
             <div className="regiser_form-element">
                 <span>{props.text}</span>
-                <input type="text" name={props.inputName} onChange={props.handleChange} onBlur={props.validateName} ></input>
+                <input type="text" name={props.inputName} onChange={props.handleChange} onBlur={props.validationCheck} ></input>
             </div>
             {!props.isValid && <p className='form-element-error'>{props.errorText}</p>}
         </div>
