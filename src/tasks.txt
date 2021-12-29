@@ -22,3 +22,6 @@ Booking = {
         email,
     }
 }
+===================================
+в логине доставать юзеров из базы 
+async/await json-server, axios, http

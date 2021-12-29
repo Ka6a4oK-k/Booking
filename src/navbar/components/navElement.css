@@ -1,8 +1,15 @@
-.navElement{
-    width: 100px;
-    height: 50px;
-    background-color: rgb(31, 27, 27);
-    color: honeydew;
-    text-align: center;
+.navElement > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 10px;
+    color: honeydew;
+    width: 200px;
+    height: 50px;
+    background-color: #4b4444;
+    font-size: larger;
+}
+
+.navElement{
+    text-decoration: none;
 }
