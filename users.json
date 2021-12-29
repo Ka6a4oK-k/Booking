@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "address": "fafafada",
+      "email": "sfeSF@fefs.wds",
+      "firstName": "Dwadwd",
+      "lastName": "Dsawfa",
+      "password": "1111Aaaa",
+      "passwordConfirmition": "1111Aaaa",
+      "phone": "+436343236",
+      "id": 1
+    },
+    {
+      "address": "fafafada",
+      "email": "sfeSF@fefs.ws",
+      "firstName": "Dwadwd",
+      "lastName": "Dsawfa",
+      "password": "1111Aaaa",
+      "passwordConfirmition": "1111Aaaa",
+      "phone": "+436343236",
+      "id": 2
+    }
+  ]
+}

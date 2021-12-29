@@ -1,0 +1,12 @@
+.booking-form-wrapper {
+    display: flex;
+    justify-content: space-around;
+    /* width: 700px; */
+    margin: 80px;
+    padding: 20px;
+    background-color: rgb(116, 36, 173);
+}
+
+.bookingFormElement{
+    margin: 5px;
+}
